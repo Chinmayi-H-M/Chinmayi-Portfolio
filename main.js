@@ -8,18 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
-            
-            // Hamburger Animation
-            const bars = menuToggle.querySelectorAll('.bar');
-            if (menuToggle.classList.contains('active')) {
-                bars[0].style.transform = 'rotate(-45deg) translate(-8px, 8px)';
-                bars[1].style.opacity = '0';
-                bars[2].style.transform = 'rotate(45deg) translate(-8px, -8px)';
-            } else {
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
-            }
         });
     }
 
@@ -28,41 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             menuToggle.classList.remove('active');
-            const bars = menuToggle.querySelectorAll('.bar');
-            bars[0].style.transform = 'none';
-            bars[1].style.opacity = '1';
-            bars[2].style.transform = 'none';
         });
     });
 
-    // 2. Navbar Background on Scroll
-    const nav = document.querySelector('nav');
+    // 2. Navbar Sticky Effect
+    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
+            navbar.classList.add('scrolled');
         } else {
-            nav.classList.remove('scrolled');
+            navbar.classList.remove('scrolled');
         }
     });
 
-    // 3. Scroll Reveal Animations
-    const sections = document.querySelectorAll('section:not(.hero)');
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
+    // 3. Scroll Reveal Logic (Performant)
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('reveal');
+                entry.target.classList.add('active');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
+    reveals.forEach(reveal => revealObserver.observe(reveal));
 
     // 4. Typewriter Effect
     const typewriter = document.getElementById('typewriter');
@@ -99,45 +76,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 5. AJAX Form Submission
-    const form = document.getElementById('contact-form');
-    const btn = document.getElementById('submit-btn');
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
 
-    if (form) {
-        form.addEventListener('submit', async (e) => {
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const originalText = btn.textContent;
-            btn.textContent = 'SENDING...';
-            btn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.disabled = true;
 
-            const formData = new FormData(form);
+            const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch(form.action, {
+                const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
-                    btn.textContent = 'MESSAGE SENT!';
-                    btn.style.color = '#2dd4bf';
-                    form.reset();
+                    submitBtn.textContent = 'MESSAGE SENT!';
+                    submitBtn.style.color = '#8b5cf6';
+                    contactForm.reset();
                     setTimeout(() => {
-                        btn.textContent = originalText;
-                        btn.style.color = '';
-                        btn.disabled = false;
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.color = '';
+                        submitBtn.disabled = false;
                     }, 5000);
                 } else {
                     throw new Error('Failed');
                 }
             } catch (err) {
-                btn.textContent = 'ERROR! TRY AGAIN';
-                btn.style.color = '#ef4444';
+                submitBtn.textContent = 'ERROR! TRY AGAIN';
                 setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.color = '';
-                    btn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
                 }, 5000);
             }
         });

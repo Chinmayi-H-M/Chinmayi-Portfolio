@@ -11,7 +11,9 @@
 </head>
 <body>
 
-    <nav>
+    <div class="bg-mesh"></div>
+
+    <nav id="navbar">
         <div class="container">
             <a href="#" class="logo">Chinmayi<span>.</span></a>
             
@@ -27,156 +29,158 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="mobile-only"><a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Hire Me</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="hero reveal" style="opacity: 1; transform: none;">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>Hi, I'm Chinmayi H M</h1>
-                <h2><span id="typewriter"></span><span class="cursor" style="display: inline-block; width: 3px; background: var(--secondary); margin-left: 5px; animation: blink 1s step-end infinite;">|</span></h2>
-                <p>I thrive at the intersection of logic and creativity — crafting meaningful user experiences through high-performance code.</p>
-                <div class="hero-btns" style="display: flex; gap: 1.5rem;">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-wrapper">
-                    <div class="image-container">
-                        <img src="https://res.cloudinary.com/dkguge6rw/image/upload/v1766413153/mee_imvhsc.jpg" alt="Chinmayi H M">
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Chinmayi H M</span></h1>
+                    <h2 id="typewriter-container"><span id="typewriter"></span><span class="cursor" style="display: inline-block; width: 3px; background: var(--primary); margin-left: 5px; animation: blink 1s step-end infinite;">|</span></h2>
+                    <p>I thrive at the intersection of logic and creativity — crafting meaningful user experiences through high-performance code.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Let's Talk</a>
                     </div>
-                    <div class="hero-tag tag-1"><i class="fas fa-terminal" style="color: var(--primary);"></i> Python Developer</div>
-                    <div class="hero-tag tag-2"><i class="fas fa-code-branch" style="color: var(--secondary);"></i> Full Stack</div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-wrapper">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dkguge6rw/image/upload/v1766413153/mee_imvhsc.jpg" alt="Chinmayi H M">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-num">/ 01</span>
-                <span class="section-title">About Me</span>
+        <!-- About Section -->
+        <section id="about" class="reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-num">/ 01</span>
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="about-card">
+                    <p>I am a Computer Science student and Full Stack Developer dedicated to building scalable web applications. With expertise in <strong>Python, JavaScript, and the MERN stack</strong>, I transform complex ideas into elegant digital solutions.</p>
+                    <p>My focus is on creating high-performance applications that deliver real-world value. I am always exploring new technologies to push the boundaries of what's possible.</p>
+                </div>
             </div>
-            <h2 class="story-heading">The <span>story</span> so far</h2>
-            <div class="about-content">
-                <p>I am a Computer Science student and Full Stack Developer dedicated to building scalable web applications. With expertise in <span>Python, JavaScript, and the MERN stack</span>, I transform complex ideas into elegant digital solutions.</p>
-                <p>My focus is on creating high-performance applications that deliver real-world value. I am always exploring new technologies to push the boundaries of what's possible.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-num">/ 02</span>
-                <span class="section-title">Projects</span>
+        <!-- Projects Section -->
+        <section id="projects" class="reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-num">/ 02</span>
+                    <h2 class="section-title">Featured Work</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>InternShield</h3>
+                        <p style="margin-bottom: 1.5rem; flex-grow: 1;">AI-powered platform to detect and flag fake internship postings using Gemini AI.</p>
+                        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                            <span class="tag" style="background: rgba(255,255,255,0.05); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem;">React</span>
+                            <span class="tag" style="background: rgba(255,255,255,0.05); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem;">Node.js</span>
+                        </div>
+                        <div style="display: flex; gap: 1.5rem;">
+                            <a href="https://intern-shield-phi.vercel.app/" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem;">LIVE DEMO</a>
+                            <a href="https://github.com/Chinmayi-H-M/InternShield" target="_blank" style="color: var(--text-main); text-decoration: none; font-weight: 700; font-size: 0.9rem;">GITHUB</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Heritage Explorer</h3>
+                        <p style="margin-bottom: 1.5rem; flex-grow: 1;">Interactive web app showcasing Mysore's cultural heritage landmarks.</p>
+                        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                            <span class="tag" style="background: rgba(255,255,255,0.05); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem;">Django</span>
+                            <span class="tag" style="background: rgba(255,255,255,0.05); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem;">JS</span>
+                        </div>
+                        <div style="display: flex; gap: 1.5rem;">
+                            <a href="https://mysorehelitageexplorer.onrender.com/" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem;">LIVE DEMO</a>
+                            <a href="https://github.com/Chinmayi-H-M/MysoreHelitageExplorer" target="_blank" style="color: var(--text-main); text-decoration: none; font-weight: 700; font-size: 0.9rem;">GITHUB</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Resume Bot</h3>
+                        <p style="margin-bottom: 1.5rem; flex-grow: 1;">Telegram bot for AI-driven resume analysis and scoring.</p>
+                        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                            <span class="tag" style="background: rgba(255,255,255,0.05); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem;">Python</span>
+                            <span class="tag" style="background: rgba(255,255,255,0.05); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem;">Make.com</span>
+                        </div>
+                        <div style="display: flex; gap: 1.5rem;">
+                            <a href="https://t.me/ResumeScanAIbot" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem;">LIVE DEMO</a>
+                            <a href="https://github.com/Chinmayi-H-M/telegram-resume-analyzer-bot" target="_blank" style="color: var(--text-main); text-decoration: none; font-weight: 700; font-size: 0.9rem;">GITHUB</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>InternShield</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">AI-powered platform to detect and flag fake internship postings using Gemini AI.</p>
-                    <div class="tech-stack">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">AI</span>
-                    </div>
-                    <div class="project-links" style="display: flex; gap: 1.5rem;">
-                        <a href="https://intern-shield-phi.vercel.app/" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 0.85rem;">LIVE DEMO</a>
-                        <a href="https://github.com/Chinmayi-H-M/InternShield" target="_blank" style="color: var(--text-main); text-decoration: none; font-weight: 700; font-size: 0.85rem;">GITHUB</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Heritage Explorer</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">Interactive web app showcasing Mysore's cultural heritage landmarks.</p>
-                    <div class="tech-stack">
-                        <span class="tag">Django</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <div class="project-links" style="display: flex; gap: 1.5rem;">
-                        <a href="https://mysorehelitageexplorer.onrender.com/" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 0.85rem;">LIVE DEMO</a>
-                        <a href="https://github.com/Chinmayi-H-M/MysoreHelitageExplorer" target="_blank" style="color: var(--text-main); text-decoration: none; font-weight: 700; font-size: 0.85rem;">GITHUB</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Resume Bot</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">Telegram bot for AI-driven resume analysis and scoring.</p>
-                    <div class="tech-stack">
-                        <span class="tag">Python</span>
-                        <span class="tag">Make.com</span>
-                    </div>
-                    <div class="project-links" style="display: flex; gap: 1.5rem;">
-                        <a href="https://t.me/ResumeScanAIbot" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 0.85rem;">LIVE DEMO</a>
-                        <a href="https://github.com/Chinmayi-H-M/telegram-resume-analyzer-bot" target="_blank" style="color: var(--text-main); text-decoration: none; font-weight: 700; font-size: 0.85rem;">GITHUB</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-num">/ 03</span>
-                <span class="section-title">Expertise</span>
+        <!-- Skills Section -->
+        <section id="skills" class="reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-num">/ 03</span>
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 style="margin-bottom: 1.5rem;">Programming</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">Java</div>
+                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">C++</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 style="margin-bottom: 1.5rem;">Web Technologies</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">React.js</div>
+                            <div class="skill-item">Node.js</div>
+                            <div class="skill-item">Express</div>
+                            <div class="skill-item">Django</div>
+                            <div class="skill-item">PostgreSQL</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 style="margin-bottom: 1.5rem;">Tools & Others</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">Git & GitHub</div>
+                            <div class="skill-item">Postman</div>
+                            <div class="skill-item">Firebase</div>
+                            <div class="skill-item">Make.com</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">Java</div>
-                        <div class="skill-item">JavaScript</div>
-                        <div class="skill-item">C++</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">React.js</div>
-                        <div class="skill-item">Node.js</div>
-                        <div class="skill-item">Express</div>
-                        <div class="skill-item">Django</div>
-                        <div class="skill-item">PostgreSQL</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Git & GitHub</div>
-                        <div class="skill-item">Postman</div>
-                        <div class="skill-item">Firebase</div>
-                        <div class="skill-item">Make.com</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-num">/ 04</span>
-                <span class="section-title">Contact</span>
-            </div>
-            <div class="contact-grid">
-                <div>
-                    <h3 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 2rem;">Let's create something <span>impactful</span>.</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem;">I am open to new opportunities and collaborations.</p>
-                    <a href="mailto:hmschinmayi06@gmail.com" style="color: var(--primary); font-weight: 700; font-size: 1.2rem; text-decoration: none;">hmschinmayi06@gmail.com</a>
+        <!-- Contact Section -->
+        <section id="contact" class="reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-num">/ 04</span>
+                    <h2 class="section-title">Get In Touch</h2>
                 </div>
-                <form id="contact-form" action="https://formsubmit.co/ajax/hmschinmayi06@gmail.com" method="POST" class="contact-form">
-                    <input type="text" name="name" placeholder="Name" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="message" rows="5" placeholder="Message" required></textarea>
-                    <button type="submit" id="submit-btn" class="btn btn-primary">SEND MESSAGE</button>
-                </form>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Let's build something extraordinary.</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 2rem;">I'm open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                        <a href="mailto:hmschinmayi06@gmail.com" style="color: var(--primary); font-weight: 700; text-decoration: none; font-size: 1.1rem;">hmschinmayi06@gmail.com</a>
+                    </div>
+                    <form id="contact-form" action="https://formsubmit.co/ajax/hmschinmayi06@gmail.com" method="POST" class="contact-form">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                        <button type="submit" id="submit-btn" class="btn btn-primary">SEND MESSAGE</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer style="padding: 5rem 0; text-align: center; border-top: 1px solid var(--border-color);">
         <div class="container">
