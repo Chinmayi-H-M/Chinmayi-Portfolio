@@ -1,5 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Scroll Reveal Animations
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            // Hamburger Animation
+            const bars = menuToggle.querySelectorAll('.bar');
+            if (menuToggle.classList.contains('active')) {
+                bars[0].style.transform = 'rotate(-45deg) translate(-8px, 8px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(45deg) translate(-8px, -8px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
+    }
+
+    // Close menu on link click
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            const bars = menuToggle.querySelectorAll('.bar');
+            bars[0].style.transform = 'none';
+            bars[1].style.opacity = '1';
+            bars[2].style.transform = 'none';
+        });
+    });
+
+    // 2. Navbar Background on Scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // 3. Scroll Reveal Animations
     const sections = document.querySelectorAll('section:not(.hero)');
     const observerOptions = {
         threshold: 0.1,
@@ -18,22 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
-    // 2. Navbar Background on Scroll
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.padding = '1.2rem 0';
-            nav.style.background = 'rgba(10, 10, 10, 0.95)';
-        } else {
-            nav.style.padding = '2rem 0';
-            nav.style.background = 'rgba(10, 10, 10, 0.8)';
-        }
-    });
-
-    // 3. Typewriter Effect
+    // 4. Typewriter Effect
     const typewriter = document.getElementById('typewriter');
     if (typewriter) {
-        const roles = ["Full Stack Developer", "MERN Specialist", "AI Enthusiast", "Python Developer"];
+        const roles = ["Full Stack Developer", "MERN Specialist", "Python Developer", "AI Enthusiast"];
         let roleIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
@@ -64,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    // 4. AJAX Form Submission
+    // 5. AJAX Form Submission
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
 

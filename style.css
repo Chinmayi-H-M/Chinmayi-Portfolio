@@ -72,16 +72,32 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
 .logo span { color: var(--primary); }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; transition: var(--transition); }
 .nav-links a:hover { color: var(--text-main); }
+
+/* Hamburger Menu Styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 28px;
+    height: 2px;
+    background-color: var(--text-main);
+    transition: var(--transition);
+}
 
 /* --- Hero Section --- */
 .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 60px; }
 .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
 
 .hero-text h1 {
-    font-size: clamp(2.2rem, 5vw, 3.8rem); /* Reduced size */
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
     line-height: 1.2; margin-bottom: 1rem;
     background: var(--heading-grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -94,7 +110,7 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .hero-btns { display: flex; gap: 1.2rem; }
 
 .hero-image { position: relative; display: flex; justify-content: flex-end; }
-.profile-wrapper { position: relative; width: 100%; max-width: 450px; } /* Increased image size */
+.profile-wrapper { position: relative; width: 100%; max-width: 450px; }
 
 .image-container {
     width: 100%; aspect-ratio: 0.9; border-radius: 40px; overflow: hidden;
@@ -102,7 +118,6 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 }
 .image-container img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Floating Tags Repositioned */
 .hero-tag {
     position: absolute; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px);
     border: 1px solid var(--border-color); padding: 0.7rem 1.2rem; border-radius: 16px;
@@ -145,10 +160,32 @@ section { padding: 100px 0; }
 .btn-outline { background: transparent; border: 1px solid var(--border-color); color: white; }
 .btn:hover { transform: translateY(-5px); }
 
+.mobile-only { display: none; }
+
 /* --- Mobile Responsiveness --- */
 @media (max-width: 1024px) {
     .projects-grid, .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-text h1 { white-space: normal; }
+    
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 100%; height: 100vh;
+        background: rgba(2, 6, 23, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        transition: var(--transition);
+        z-index: 1000;
+    }
+    
+    .nav-links.active { right: 0; }
+    .nav-links li { margin: 1.5rem 0; width: 80%; text-align: center; }
+    .nav-links a { font-size: 1.5rem; }
+    
+    .mobile-only { display: block; }
 }
 
 @media (max-width: 768px) {
@@ -158,7 +195,6 @@ section { padding: 100px 0; }
     .hero-text p { margin: 0 auto 2.5rem; }
     .hero-btns { justify-content: center; }
     .projects-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
     .tag-1, .tag-2 { display: none; }
 }
 
